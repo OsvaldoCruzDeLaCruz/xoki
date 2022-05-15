@@ -1,4 +1,4 @@
-from multiprocessing import context
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 
@@ -9,4 +9,4 @@ class HomeView(View):
 
         }
 
-        return render(request, '../../pages/index.html')
+        return render(request, 'pages/index.html', context)
