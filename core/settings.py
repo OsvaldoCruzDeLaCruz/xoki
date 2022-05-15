@@ -32,8 +32,17 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+LOCAL_APPS = [
+    'core',
+    'xoki',
+]
+EXRERNAL_APPS = [
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
-INSTALLED_APPS = [
+]
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,18 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
-
-    'core',
-    'xoki',
-
-
-
 ]
+
+
+INSTALLED_APPS = LOCAL_APPS + EXRERNAL_APPS + DEFAULT_APPS
 
 
 
@@ -72,7 +73,6 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 
-SITE_ID = 1
 
 
 MIDDLEWARE = [
@@ -139,20 +139,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ACCOUNT_LOGOUT_ON_GET = True
+# Variables for allauth
+
+SITE_ID = 1
+ACCOUNT_LOGOUT_ON_GET = False
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = '/'
+EMAIL_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-MX'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Static files (CSS, JavaScript, Images)
