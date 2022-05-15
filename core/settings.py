@@ -51,19 +51,16 @@ INSTALLED_APPS = [
     'xoki',
 
 
-    'tailwind',
-    'theme'
-
 
 ]
 
-TAILWIND_APP_NAME = 'theme'
+
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-NPM_BIN_PATH = '/usr/bin/npm'
+
 
 AUTHENTICATION_BACKENDS = [
     
@@ -142,6 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_LOGOUT_ON_GET = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
