@@ -35,6 +35,10 @@ ALLOWED_HOSTS = []
 LOCAL_APPS = [
     'core',
     'xoki',
+    'publicaciones',    
+    'reportes',
+    'visitas',
+
 ]
 EXRERNAL_APPS = [
     'allauth',
