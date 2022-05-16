@@ -25,6 +25,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', HomeView.as_view(), name='home'),
     path('xoki/', include('xoki.urls', namespace='xoki')),
+    path('reportes/', include('reportes.urls', namespace='reportes')),
+    path('publicaciones/', include('publicaciones.urls', namespace='publicaciones')),
+    path('visitas/', include('visitas.urls', namespace='visitas')),
 
 ]
 

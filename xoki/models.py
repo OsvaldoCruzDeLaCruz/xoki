@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 import os
 
+
 # function to get the path to the upload directory
 def xoki_directory_path(instance, filename):
     imagen_name = 'xoki/media/{0}/{1}'.format(instance.nombre, filename)
@@ -44,11 +45,15 @@ class Condomino(models.Model):
     ubicacion = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nombre_jefe  
+        return self.nombre  
 
 class Vivienda(models.Model):
     condominio = models.ForeignKey(Condomino, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=100)
     fecha_registro = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nombre
 
 
 class Guardia(models.Model):
